@@ -157,5 +157,20 @@ Built with a custom component library following shadcn/ui patterns:
 - Data Table with pagination
 - Form components with validation
 
+## 🐶 Git Hooks (Husky)
+
+This project uses Husky to enforce code quality through Git hooks:
+
+| Hook | Action |
+|------|--------|
+| **pre-commit** | Runs `pnpm lint` before each commit |
+| **pre-push** | Runs `pnpm lint` before pushing to remote |
+
+Both hooks will warn about linting issues but allow the operation to proceed. To fix issues automatically:
+
+```bash
+pnpm lint:fix
+```
+
 
 
