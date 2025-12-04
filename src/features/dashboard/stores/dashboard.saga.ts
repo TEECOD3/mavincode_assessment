@@ -1,6 +1,6 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { DashboardData, CreateDashboardItemRequest, UpdateDashboardItemRequest, DashboardFilters } from '@/features/dashboard/types/dashboard.types';
+import type { DashboardData, CreateDashboardItemRequest, UpdateDashboardItemRequest, DashboardFilters, MetricCard, ChartData, ActivityItem } from '@/features/dashboard/types/dashboard.types';
 import { dashboardUseCase } from '@/features/dashboard/services/dashboard.usecase';
 import {
   fetchDataStart,
@@ -47,7 +47,7 @@ export const filterDashboardData = (filters: DashboardFilters) => ({
   payload: { filters },
 });
 
-function* fetchDashboardDataSaga(): Generator<any, void, any> {
+function* fetchDashboardDataSaga(): Generator<unknown, void, unknown> {
   try {
     yield put(fetchDataStart());
     
@@ -58,7 +58,7 @@ function* fetchDashboardDataSaga(): Generator<any, void, any> {
       dashboardUseCase.getActivities(),
     ]));
 
-    const [items, metrics, charts, activities] = result as [any, any, any, any];
+    const [items, metrics, charts, activities] = result as [DashboardData[], MetricCard[], ChartData[], ActivityItem[]];
     yield put(fetchDataSuccess({ items, metrics, charts, activities }));
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Failed to fetch dashboard data';
@@ -66,7 +66,7 @@ function* fetchDashboardDataSaga(): Generator<any, void, any> {
   }
 }
 
-function* createDashboardItemSaga(action: PayloadAction<{ data: CreateDashboardItemRequest; createdBy: string }>): Generator<any, void, any> {
+function* createDashboardItemSaga(action: PayloadAction<{ data: CreateDashboardItemRequest; createdBy: string }>): Generator<unknown, void, unknown> {
   try {
     yield put(createItemStart());
     const { data, createdBy } = action.payload;
@@ -78,7 +78,7 @@ function* createDashboardItemSaga(action: PayloadAction<{ data: CreateDashboardI
   }
 }
 
-function* updateDashboardItemSaga(action: PayloadAction<{ id: string; data: UpdateDashboardItemRequest }>): Generator<any, void, any> {
+function* updateDashboardItemSaga(action: PayloadAction<{ id: string; data: UpdateDashboardItemRequest }>): Generator<unknown, void, unknown> {
   try {
     yield put(updateItemStart());
     const { id, data } = action.payload;
@@ -90,7 +90,7 @@ function* updateDashboardItemSaga(action: PayloadAction<{ id: string; data: Upda
   }
 }
 
-function* deleteDashboardItemSaga(action: PayloadAction<{ id: string }>): Generator<any, void, any> {
+function* deleteDashboardItemSaga(action: PayloadAction<{ id: string }>): Generator<unknown, void, unknown> {
   try {
     yield put(deleteItemStart());
     const { id } = action.payload;
@@ -102,7 +102,7 @@ function* deleteDashboardItemSaga(action: PayloadAction<{ id: string }>): Genera
   }
 }
 
-function* filterDashboardDataSaga(action: PayloadAction<{ filters: DashboardFilters }>): Generator<any, void, any> {
+function* filterDashboardDataSaga(action: PayloadAction<{ filters: DashboardFilters }>): Generator<unknown, void, unknown> {
   try {
     yield put(fetchDataStart());
     const { filters } = action.payload;
@@ -114,7 +114,7 @@ function* filterDashboardDataSaga(action: PayloadAction<{ filters: DashboardFilt
       dashboardUseCase.getActivities(),
     ]));
 
-    const [metrics, charts, activities] = result as [any, any, any];
+    const [metrics, charts, activities] = result as [MetricCard[], ChartData[], ActivityItem[]];
     yield put(fetchDataSuccess({ items: filteredItems as DashboardData[], metrics, charts, activities }));
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Failed to filter dashboard data';

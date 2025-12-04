@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import type { RootState } from '@/lib/stores';
 import { loginRequest, logoutRequest, initializeAuth } from '@/features/authentication/stores/auth.saga';
 import { clearError } from '@/features/authentication/stores/auth.slice';
