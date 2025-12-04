@@ -140,11 +140,13 @@ Password: password123
 
 ## 📊 Dashboard Features
 
+- Authentication (Login/Logout with session management)
 - Metric cards with trend indicators
 - Interactive charts (Line, Donut, Pie)
 - Activity feed
 - Data table with CRUD operations
 - Responsive design (mobile-first)
+
 
 ## 🎨 UI Components
 
