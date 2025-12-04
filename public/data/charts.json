@@ -1,0 +1,57 @@
+[
+  {
+    "id": "chart-1",
+    "type": "LINE",
+    "title": "Revenue Trend",
+    "data": [
+      { "label": "Jan", "value": 118000, "date": "2024-01-01T00:00:00.000Z" },
+      { "label": "Feb", "value": 125000, "date": "2024-02-01T00:00:00.000Z" },
+      { "label": "Mar", "value": 132000, "date": "2024-03-01T00:00:00.000Z" },
+      { "label": "Apr", "value": 128000, "date": "2024-04-01T00:00:00.000Z" },
+      { "label": "May", "value": 135000, "date": "2024-05-01T00:00:00.000Z" },
+      { "label": "Jun", "value": 142000, "date": "2024-06-01T00:00:00.000Z" }
+    ],
+    "config": {
+      "responsive": true,
+      "showLegend": true,
+      "showTooltip": true,
+      "colors": ["#3B82F6"],
+      "height": 300
+    }
+  },
+  {
+    "id": "chart-2",
+    "type": "DONUT",
+    "title": "Sales by Category",
+    "data": [
+      { "label": "Sales", "value": 45, "color": "#3B82F6" },
+      { "label": "Marketing", "value": 25, "color": "#10B981" },
+      { "label": "Operations", "value": 20, "color": "#F59E0B" },
+      { "label": "Finance", "value": 10, "color": "#EF4444" }
+    ],
+    "config": {
+      "responsive": true,
+      "showLegend": true,
+      "showTooltip": true,
+      "colors": ["#3B82F6", "#10B981", "#F59E0B", "#EF4444"],
+      "height": 300
+    }
+  },
+  {
+    "id": "chart-3",
+    "type": "PIE",
+    "title": "Customer Distribution",
+    "data": [
+      { "label": "New", "value": 35, "color": "#3B82F6" },
+      { "label": "Returning", "value": 45, "color": "#10B981" },
+      { "label": "Inactive", "value": 20, "color": "#6B7280" }
+    ],
+    "config": {
+      "responsive": true,
+      "showLegend": true,
+      "showTooltip": true,
+      "colors": ["#3B82F6", "#10B981", "#6B7280"],
+      "height": 250
+    }
+  }
+]

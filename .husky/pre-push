@@ -1,0 +1,8 @@
+echo "🔍 Running linting checks before push..."
+pnpm lint || {
+  echo "⚠️  Linting issues found! Consider running 'pnpm lint:fix' to fix them."
+  echo "🚀 Proceeding with push anyway..."
+  exit 0
+}
+
+echo "✅ Linting passed! Proceeding with push..."

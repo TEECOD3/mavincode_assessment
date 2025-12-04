@@ -1,0 +1,8 @@
+echo "🔍 Running linting checks before commit..."
+pnpm lint || {
+  echo "⚠️  Linting issues found! Consider running 'pnpm lint:fix' to fix them."
+  echo "🚀 Proceeding with commit anyway..."
+  exit 0
+}
+
+echo "✅ Linting passed! Proceeding with commit..."

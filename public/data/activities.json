@@ -1,0 +1,37 @@
+[
+  {
+    "id": "activity-1",
+    "user": "Admin User",
+    "action": "Created new dashboard item: Monthly Revenue",
+    "timestamp": "2024-01-15T10:30:00.000Z",
+    "avatar": "AU"
+  },
+  {
+    "id": "activity-2",
+    "user": "Regular User",
+    "action": "Updated customer satisfaction metrics",
+    "timestamp": "2024-01-15T11:30:00.000Z",
+    "avatar": "RU"
+  },
+  {
+    "id": "activity-3",
+    "user": "Admin User",
+    "action": "Completed financial report processing",
+    "timestamp": "2024-01-15T09:15:00.000Z",
+    "avatar": "AU"
+  },
+  {
+    "id": "activity-4",
+    "user": "Regular User",
+    "action": "Added new marketing campaign data",
+    "timestamp": "2024-01-15T14:20:00.000Z",
+    "avatar": "RU"
+  },
+  {
+    "id": "activity-5",
+    "user": "Viewer User",
+    "action": "Viewed operations dashboard",
+    "timestamp": "2024-01-15T16:45:00.000Z",
+    "avatar": "VU"
+  }
+]

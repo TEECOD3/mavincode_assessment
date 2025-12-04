@@ -1,0 +1,38 @@
+[
+  {
+    "id": "metric-1",
+    "title": "Total Revenue",
+    "value": "$125,000",
+    "change": 5.9,
+    "changeType": "INCREASE",
+    "icon": "dollar-sign",
+    "color": "success"
+  },
+  {
+    "id": "metric-2",
+    "title": "New Customers",
+    "value": "245",
+    "change": 11.4,
+    "changeType": "INCREASE",
+    "icon": "users",
+    "color": "success"
+  },
+  {
+    "id": "metric-3",
+    "title": "Avg. Processing Time",
+    "value": "2.5h",
+    "change": -21.9,
+    "changeType": "DECREASE",
+    "icon": "clock",
+    "color": "success"
+  },
+  {
+    "id": "metric-4",
+    "title": "Customer Satisfaction",
+    "value": "4.7/5",
+    "change": 4.4,
+    "changeType": "INCREASE",
+    "icon": "star",
+    "color": "success"
+  }
+]

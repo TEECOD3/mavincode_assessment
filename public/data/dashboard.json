@@ -1,0 +1,81 @@
+[
+  {
+    "id": "1",
+    "title": "Monthly Revenue",
+    "description": "Total revenue for the current month",
+    "value": 125000,
+    "category": "SALES",
+    "status": "ACTIVE",
+    "metadata": {
+      "currency": "USD",
+      "previousValue": 118000,
+      "target": 130000
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-15T10:30:00.000Z",
+    "createdBy": "1"
+  },
+  {
+    "id": "2",
+    "title": "New Customers",
+    "description": "Number of new customers acquired this month",
+    "value": 245,
+    "category": "MARKETING",
+    "status": "ACTIVE",
+    "metadata": {
+      "previousValue": 220,
+      "target": 250
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-15T14:20:00.000Z",
+    "createdBy": "1"
+  },
+  {
+    "id": "3",
+    "title": "Order Processing Time",
+    "description": "Average time to process orders in hours",
+    "value": 2.5,
+    "category": "OPERATIONS",
+    "status": "PENDING",
+    "metadata": {
+      "unit": "hours",
+      "previousValue": 3.2,
+      "target": 2.0
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-15T16:45:00.000Z",
+    "createdBy": "2"
+  },
+  {
+    "id": "4",
+    "title": "Operating Expenses",
+    "description": "Total operating expenses for the month",
+    "value": 85000,
+    "category": "FINANCE",
+    "status": "COMPLETED",
+    "metadata": {
+      "currency": "USD",
+      "previousValue": 88000,
+      "budget": 90000
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-15T09:15:00.000Z",
+    "createdBy": "1"
+  },
+  {
+    "id": "5",
+    "title": "Customer Satisfaction",
+    "description": "Average customer satisfaction score",
+    "value": 4.7,
+    "category": "OPERATIONS",
+    "status": "ACTIVE",
+    "metadata": {
+      "scale": "1-5",
+      "previousValue": 4.5,
+      "target": 4.8
+    },
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-15T11:30:00.000Z",
+    "createdBy": "2"
+  }
+]
