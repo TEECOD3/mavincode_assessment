@@ -1,22 +1,29 @@
-import { useEffect, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import type { RootState } from '@/lib/stores/rootReducer';
-import type { DashboardFilters, CreateDashboardItemRequest, UpdateDashboardItemRequest } from '@/features/dashboard/types/dashboard.types';
+import { useEffect, useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState } from "@/lib/stores/rootReducer";
+import type {
+  DashboardFilters,
+  CreateDashboardItemRequest,
+  UpdateDashboardItemRequest,
+} from "@/features/dashboard/types/dashboard.types";
 import {
   fetchDashboardData,
   createDashboardItem,
   updateDashboardItem,
   deleteDashboardItem,
   filterDashboardData,
-} from '@/features/dashboard/stores/dashboard.saga';
-import { clearError, setSelectedItem } from '@/features/dashboard/stores/dashboard.slice';
+} from "@/features/dashboard/stores/dashboard.saga";
+import {
+  clearError,
+  setSelectedItem,
+} from "@/features/dashboard/stores/dashboard.slice";
 
 interface UseDashboardReturn {
-  dashboardData: RootState['dashboard']['items'];
-  metrics: RootState['dashboard']['metrics'];
-  charts: RootState['dashboard']['charts'];
-  activities: RootState['dashboard']['activities'];
-  selectedItem: RootState['dashboard']['selectedItem'];
+  dashboardData: RootState["dashboard"]["items"];
+  metrics: RootState["dashboard"]["metrics"];
+  charts: RootState["dashboard"]["charts"];
+  activities: RootState["dashboard"]["activities"];
+  selectedItem: RootState["dashboard"]["selectedItem"];
   isLoading: boolean;
   error: string | null;
   refreshData: () => void;
@@ -24,7 +31,7 @@ interface UseDashboardReturn {
   updateItem: (id: string, data: UpdateDashboardItemRequest) => void;
   deleteItem: (id: string) => void;
   filterData: (filters: DashboardFilters) => void;
-  selectItem: (item: RootState['dashboard']['selectedItem']) => void;
+  selectItem: (item: RootState["dashboard"]["selectedItem"]) => void;
   clearError: () => void;
 }
 
@@ -60,7 +67,7 @@ export const useDashboard = (): UseDashboardReturn => {
     dispatch(filterDashboardData(filters));
   };
 
-  const selectItem = (item: RootState['dashboard']['selectedItem']) => {
+  const selectItem = (item: RootState["dashboard"]["selectedItem"]) => {
     dispatch(setSelectedItem(item));
   };
 

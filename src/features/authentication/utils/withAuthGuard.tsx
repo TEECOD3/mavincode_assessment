@@ -1,5 +1,5 @@
-import React from 'react';
-import { AuthGuard } from '@/features/authentication/components/AuthGuard';
+import React from "react";
+import { AuthGuard } from "@/features/authentication/components/AuthGuard";
 
 interface AuthGuardProps {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ interface AuthGuardProps {
 
 export const withAuthGuard = <P extends object>(
   Component: React.ComponentType<P>,
-  options?: Omit<AuthGuardProps, 'children'>
+  options?: Omit<AuthGuardProps, "children">
 ) => {
   const WrappedComponent = (props: P) => (
     <AuthGuard {...options}>
@@ -17,7 +17,9 @@ export const withAuthGuard = <P extends object>(
     </AuthGuard>
   );
 
-  WrappedComponent.displayName = `withAuthGuard(${Component.displayName || Component.name})`;
-  
+  WrappedComponent.displayName = `withAuthGuard(${
+    Component.displayName || Component.name
+  })`;
+
   return WrappedComponent;
 };

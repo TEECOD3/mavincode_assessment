@@ -1,5 +1,9 @@
-import type { User, AuthenticationUseCase, LoginCredentials } from '@/features/authentication/types/auth.types';
-import { AuthService } from './auth.service';
+import type {
+  User,
+  AuthenticationUseCase,
+  LoginCredentials,
+} from "@/features/authentication/types/auth.types";
+import { AuthService } from "./auth.service";
 
 export class AuthUseCase implements AuthenticationUseCase {
   private authService: AuthService;
@@ -8,17 +12,20 @@ export class AuthUseCase implements AuthenticationUseCase {
     this.authService = new AuthService();
   }
 
-  async login(email: string, password: string): Promise<{ user: User; token: string }> {
+  async login(
+    email: string,
+    password: string
+  ): Promise<{ user: User; token: string }> {
     try {
       const credentials: LoginCredentials = { email, password };
       const result = await this.authService.login(credentials);
-      
+
       return {
         user: result.user,
-        token: result.token
+        token: result.token,
       };
     } catch (error) {
-      throw new Error(error instanceof Error ? error.message : 'Login failed');
+      throw new Error(error instanceof Error ? error.message : "Login failed");
     }
   }
 
@@ -26,7 +33,7 @@ export class AuthUseCase implements AuthenticationUseCase {
     try {
       await this.authService.logout();
     } catch (error) {
-      console.error('Logout error:', error);
+      console.error("Logout error:", error);
     }
   }
 
@@ -34,7 +41,7 @@ export class AuthUseCase implements AuthenticationUseCase {
     try {
       return await this.authService.getCurrentUser();
     } catch (error) {
-      console.error('Get current user error:', error);
+      console.error("Get current user error:", error);
       return null;
     }
   }
@@ -43,7 +50,7 @@ export class AuthUseCase implements AuthenticationUseCase {
     try {
       return await this.authService.isAuthenticated();
     } catch (error) {
-      console.error('Authentication check error:', error);
+      console.error("Authentication check error:", error);
       return false;
     }
   }

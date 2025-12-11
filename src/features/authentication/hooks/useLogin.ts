@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { useAuth } from './useAuth';
+import { useState, useCallback } from "react";
+import { useAuth } from "./useAuth";
 
 interface LoginFormData {
   email: string;
@@ -15,8 +15,8 @@ interface LoginFormErrors {
 export const useLogin = () => {
   const { login, isLoading, error, clearError } = useAuth();
   const [formData, setFormData] = useState<LoginFormData>({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
   const [formErrors, setFormErrors] = useState<LoginFormErrors>({});
 
@@ -24,48 +24,54 @@ export const useLogin = () => {
     const errors: LoginFormErrors = {};
 
     if (!data.email) {
-      errors.email = 'Email is required';
+      errors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-      errors.email = 'Please enter a valid email address';
+      errors.email = "Please enter a valid email address";
     }
 
     if (!data.password) {
-      errors.password = 'Password is required';
+      errors.password = "Password is required";
     } else if (data.password.length < 6) {
-      errors.password = 'Password must be at least 6 characters long';
+      errors.password = "Password must be at least 6 characters long";
     }
 
     return errors;
   }, []);
 
-  const updateField = useCallback((field: keyof LoginFormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    
-    if (formErrors[field]) {
-      setFormErrors(prev => ({ ...prev, [field]: undefined }));
-    }
-    
-    if (error) {
-      clearError();
-    }
-  }, [formErrors, error, clearError]);
+  const updateField = useCallback(
+    (field: keyof LoginFormData, value: string) => {
+      setFormData((prev) => ({ ...prev, [field]: value }));
 
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    setFormErrors({});
-    
-    const errors = validateForm(formData);
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-      return;
-    }
+      if (formErrors[field]) {
+        setFormErrors((prev) => ({ ...prev, [field]: undefined }));
+      }
 
-    login(formData.email, formData.password);
-  }, [formData, validateForm, login]);
+      if (error) {
+        clearError();
+      }
+    },
+    [formErrors, error, clearError]
+  );
+
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault();
+
+      setFormErrors({});
+
+      const errors = validateForm(formData);
+      if (Object.keys(errors).length > 0) {
+        setFormErrors(errors);
+        return;
+      }
+
+      login(formData.email, formData.password);
+    },
+    [formData, validateForm, login]
+  );
 
   const resetForm = useCallback(() => {
-    setFormData({ email: '', password: '' });
+    setFormData({ email: "", password: "" });
     setFormErrors({});
     clearError();
   }, [clearError]);

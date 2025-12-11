@@ -1,4 +1,4 @@
-export type UserRole = 'ADMIN' | 'USER' | 'VIEWER';
+export type UserRole = "ADMIN" | "USER" | "VIEWER";
 
 export interface User {
   id: string;
@@ -43,11 +43,14 @@ export interface ApiResponse<T> {
 export interface UserRepository {
   authenticate(email: string, password: string): Promise<User | null>;
   findById(id: string): Promise<User | null>;
-  create(user: Omit<User, 'id'>): Promise<User>;
+  create(user: Omit<User, "id">): Promise<User>;
 }
 
 export interface AuthenticationUseCase {
-  login(email: string, password: string): Promise<{ user: User; token: string }>;
+  login(
+    email: string,
+    password: string
+  ): Promise<{ user: User; token: string }>;
   logout(): Promise<void>;
   getCurrentUser(): Promise<User | null>;
 }

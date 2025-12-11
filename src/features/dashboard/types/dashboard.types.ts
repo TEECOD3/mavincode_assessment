@@ -1,7 +1,11 @@
-export type DashboardCategory = 'SALES' | 'MARKETING' | 'OPERATIONS' | 'FINANCE';
-export type DashboardStatus = 'ACTIVE' | 'PENDING' | 'COMPLETED' | 'ARCHIVED';
-export type ChangeType = 'INCREASE' | 'DECREASE';
-export type ChartType = 'LINE' | 'DONUT' | 'PIE' | 'BAR';
+export type DashboardCategory =
+  | "SALES"
+  | "MARKETING"
+  | "OPERATIONS"
+  | "FINANCE";
+export type DashboardStatus = "ACTIVE" | "PENDING" | "COMPLETED" | "ARCHIVED";
+export type ChangeType = "INCREASE" | "DECREASE";
+export type ChartType = "LINE" | "DONUT" | "PIE" | "BAR";
 
 export interface DashboardData {
   id: string;
@@ -141,7 +145,10 @@ export interface UpdateDashboardItemRequest {
 export interface DashboardRepository {
   findAll(): Promise<DashboardData[]>;
   findById(id: string): Promise<DashboardData | null>;
-  create(data: CreateDashboardItemRequest, createdBy: string): Promise<DashboardData>;
+  create(
+    data: CreateDashboardItemRequest,
+    createdBy: string
+  ): Promise<DashboardData>;
   update(id: string, data: UpdateDashboardItemRequest): Promise<DashboardData>;
   delete(id: string): Promise<void>;
   findByCategory(category: DashboardCategory): Promise<DashboardData[]>;
@@ -156,8 +163,14 @@ export interface DashboardUseCase {
   getDashboardMetrics(): Promise<MetricCard[]>;
   getChartData(): Promise<ChartData[]>;
   getActivities(): Promise<ActivityItem[]>;
-  createDashboardItem(data: CreateDashboardItemRequest, createdBy: string): Promise<DashboardData>;
-  updateDashboardItem(id: string, data: UpdateDashboardItemRequest): Promise<DashboardData>;
+  createDashboardItem(
+    data: CreateDashboardItemRequest,
+    createdBy: string
+  ): Promise<DashboardData>;
+  updateDashboardItem(
+    id: string,
+    data: UpdateDashboardItemRequest
+  ): Promise<DashboardData>;
   deleteDashboardItem(id: string): Promise<void>;
   getDashboardItemById(id: string): Promise<DashboardData | null>;
   filterDashboardData(filters: DashboardFilters): Promise<DashboardData[]>;
