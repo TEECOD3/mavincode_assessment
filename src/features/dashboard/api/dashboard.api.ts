@@ -27,8 +27,8 @@ class DashboardApi {
       const data = await response.json();
       return data.map((item: any) => ({
         ...item,
-        createdAt: item.createdAt, // Keep as ISO string
-        updatedAt: item.updatedAt, // Keep as ISO string
+        createdAt: item.createdAt,
+        updatedAt: item.updatedAt,
       }));
     } catch (error) {
       console.error('Error loading dashboard data:', error);
@@ -60,7 +60,7 @@ class DashboardApi {
         ...chart,
         data: chart.data.map((point: any) => ({
           ...point,
-          date: point.date || undefined, // Keep as ISO string
+          date: point.date || undefined,
         })),
       }));
     } catch (error) {
@@ -78,7 +78,7 @@ class DashboardApi {
       const data = await response.json();
       return data.map((activity: any) => ({
         ...activity,
-        timestamp: activity.timestamp, // Keep as ISO string
+        timestamp: activity.timestamp,
       }));
     } catch (error) {
       console.error('Error loading activities:', error);
@@ -89,8 +89,8 @@ class DashboardApi {
   private async saveDashboardData(data: DashboardData[]): Promise<void> {
     const serializedData = data.map(item => ({
       ...item,
-      createdAt: item.createdAt, // Already ISO string
-      updatedAt: item.updatedAt, // Already ISO string
+      createdAt: item.createdAt,
+      updatedAt: item.updatedAt,
     }));
     localStorage.setItem('dashboard_data', JSON.stringify(serializedData));
   }
@@ -103,8 +103,8 @@ class DashboardApi {
       const data = JSON.parse(stored);
       return data.map((item: any) => ({
         ...item,
-        createdAt: item.createdAt, // Keep as ISO string
-        updatedAt: item.updatedAt, // Keep as ISO string
+        createdAt: item.createdAt,
+        updatedAt: item.updatedAt,
       }));
     } catch {
       return null;

@@ -15,14 +15,11 @@ export const useLoginForm = () => {
   });
 
   const onSubmit = async (data: LoginFormData) => {
-    // Clear any previous errors
     clearError();
     
-    // Attempt login
     login(data.email, data.password);
   };
 
-  // Clear auth errors when form values change
   const handleFieldChange = () => {
     if (error) {
       clearError();

@@ -69,7 +69,6 @@ export const useDashboard = (): UseDashboardReturn => {
   };
 
   useEffect(() => {
-    // Load data on mount
     refreshData();
   }, [refreshData]);
 

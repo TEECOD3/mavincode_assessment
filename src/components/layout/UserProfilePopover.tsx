@@ -1,6 +1,6 @@
-import { User, Settings, LogOut } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import type { User as UserType } from '@/features/authentication';
+import { User, Settings, LogOut } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import type { User as UserType } from "@/features/authentication";
 
 interface UserProfilePopoverProps {
   user?: UserType | null;
@@ -9,11 +9,11 @@ interface UserProfilePopoverProps {
   onProfileClick?: () => void;
 }
 
-export const UserProfilePopover = ({ 
-  user, 
+export const UserProfilePopover = ({
+  user,
   onLogoutClick,
   onSettingsClick,
-  onProfileClick 
+  onProfileClick,
 }: UserProfilePopoverProps) => {
   return (
     <div className="py-2">
@@ -21,15 +21,15 @@ export const UserProfilePopover = ({
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
             <span className="text-sm font-medium text-gray-600">
-              {user?.name ? user.name.charAt(0).toUpperCase() : 'JP'}
+              {user?.name ? user.name.charAt(0).toUpperCase() : "JP"}
             </span>
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-gray-900 truncate">
-              {user?.name || 'Jane Pearson'}
+              {user?.name || "Jane Pearson"}
             </p>
             <p className="text-xs text-gray-500 truncate">
-              {user?.email || 'jane@example.com'}
+              {user?.email || "jane@example.com"}
             </p>
           </div>
         </div>
@@ -45,7 +45,7 @@ export const UserProfilePopover = ({
           <User className="w-4 h-4 mr-3" />
           View Profile
         </Button>
-        
+
         <Button
           variant="ghost"
           size="sm"

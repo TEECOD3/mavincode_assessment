@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import { Home, ArrowLeft, Search } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Link } from "react-router-dom";
+import { Home, ArrowLeft, Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const Component = () => {
   return (
@@ -11,13 +11,13 @@ export const Component = () => {
             <h1 className="text-9xl font-bold text-gray-200 select-none">
               404
             </h1>
-            
+
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center animate-bounce">
                 <Search className="w-12 h-12 text-white" />
               </div>
             </div>
-            
+
             <div className="absolute top-4 left-8 w-4 h-4 bg-purple-400 rounded-full animate-pulse"></div>
             <div className="absolute top-12 right-12 w-6 h-6 bg-blue-400 rounded-full animate-pulse delay-300"></div>
             <div className="absolute bottom-8 left-12 w-3 h-3 bg-pink-400 rounded-full animate-pulse delay-700"></div>
@@ -29,8 +29,8 @@ export const Component = () => {
             Oops! Page Not Found
           </h2>
           <p className="text-gray-600 leading-relaxed">
-            The page you're looking for seems to have wandered off into the digital void. 
-            Don't worry, it happens to the best of us!
+            The page you're looking for seems to have wandered off into the
+            digital void. Don't worry, it happens to the best of us!
           </p>
         </div>
 
@@ -41,9 +41,9 @@ export const Component = () => {
               Back to Dashboard
             </Button>
           </Link>
-          
-          <Button 
-            variant="outline" 
+
+          <Button
+            variant="outline"
             className="w-full"
             onClick={() => window.history.back()}
           >
@@ -54,7 +54,8 @@ export const Component = () => {
 
         <div className="mt-8 p-4 bg-gray-50 rounded-lg">
           <p className="text-sm text-gray-500">
-            If you believe this is an error, please contact our support team or try refreshing the page.
+            If you believe this is an error, please contact our support team or
+            try refreshing the page.
           </p>
         </div>
 

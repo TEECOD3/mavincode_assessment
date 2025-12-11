@@ -7,7 +7,6 @@ interface AuthGuardProps {
   redirectTo?: string;
 }
 
-// Higher-order component for protecting routes
 export const withAuthGuard = <P extends object>(
   Component: React.ComponentType<P>,
   options?: Omit<AuthGuardProps, 'children'>

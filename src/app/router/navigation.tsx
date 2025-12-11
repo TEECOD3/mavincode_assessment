@@ -2,9 +2,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useCallback } from 'react';
 import { ROUTES, type RoutePath } from './routes.config';
 
-/**
- * Enhanced navigation hook with type safety and authentication awareness
- */
 export const useAppNavigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -53,9 +50,6 @@ export const useAppNavigation = () => {
   };
 };
 
-/**
- * Navigation guard hook for programmatic route protection
- */
 export const useNavigationGuard = () => {
   const { redirectToLogin, redirectToDashboard } = useAppNavigation();
 

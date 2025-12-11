@@ -26,7 +26,6 @@ export class AuthUseCase implements AuthenticationUseCase {
     try {
       await this.authService.logout();
     } catch (error) {
-      // Log error but don't throw - logout should always succeed locally
       console.error('Logout error:', error);
     }
   }
@@ -50,7 +49,6 @@ export class AuthUseCase implements AuthenticationUseCase {
   }
 
   async initializeAuth(): Promise<User | null> {
-    // Try to restore user from stored data first (faster)
     const storedUser = this.authService.getStoredUser();
     const storedToken = this.authService.getStoredToken();
 
@@ -58,7 +56,6 @@ export class AuthUseCase implements AuthenticationUseCase {
       return null;
     }
 
-    // Validate the stored token
     const isValid = await this.isAuthenticated();
     if (!isValid) {
       await this.logout();
@@ -69,7 +66,6 @@ export class AuthUseCase implements AuthenticationUseCase {
   }
 
   async refreshUserData(): Promise<User | null> {
-    // Force refresh user data from server
     return await this.getCurrentUser();
   }
 }

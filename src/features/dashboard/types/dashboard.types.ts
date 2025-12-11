@@ -11,8 +11,8 @@ export interface DashboardData {
   category: DashboardCategory;
   status: DashboardStatus;
   metadata: Record<string, unknown>;
-  createdAt: string; // ISO string instead of Date
-  updatedAt: string; // ISO string instead of Date
+  createdAt: string;
+  updatedAt: string;
   createdBy: string;
 }
 
@@ -33,10 +33,10 @@ export interface ColorTheme {
     darkBlue: string;
   };
   status: {
-    success: string; // Green for positive metrics
-    danger: string;  // Red for negative metrics
-    warning: string; // Yellow for neutral/warning
-    info: string;    // Gray for info
+    success: string;
+    danger: string;
+    warning: string;
+    info: string;
   };
   background: {
     primary: string;
@@ -55,8 +55,8 @@ export interface ChartDataPoint {
   label: string;
   value: number;
   color?: string;
-  date?: string; // ISO string instead of Date
-  [key: string]: unknown; // Index signature for Recharts compatibility
+  date?: string;
+  [key: string]: unknown;
 }
 
 export interface ChartConfig {
@@ -79,7 +79,7 @@ export interface ActivityItem {
   id: string;
   user: string;
   action: string;
-  timestamp: string; // ISO string instead of Date
+  timestamp: string;
   avatar?: string;
 }
 
@@ -98,18 +98,17 @@ export interface DashboardFilters {
   category?: DashboardCategory;
   status?: DashboardStatus;
   dateRange?: {
-    start: string; // ISO string instead of Date
-    end: string; // ISO string instead of Date
+    start: string;
+    end: string;
   };
   search?: string;
 }
 
-// API Response types
 export interface ApiResponse<T> {
   data: T;
   message: string;
   success: boolean;
-  timestamp: string; // ISO string instead of Date
+  timestamp: string;
 }
 
 export interface PaginatedResponse<T> extends ApiResponse<T[]> {
@@ -121,7 +120,6 @@ export interface PaginatedResponse<T> extends ApiResponse<T[]> {
   };
 }
 
-// Request types
 export interface CreateDashboardItemRequest {
   title: string;
   description?: string;
@@ -140,7 +138,6 @@ export interface UpdateDashboardItemRequest {
   metadata?: Record<string, unknown>;
 }
 
-// Repository interfaces
 export interface DashboardRepository {
   findAll(): Promise<DashboardData[]>;
   findById(id: string): Promise<DashboardData | null>;
@@ -154,7 +151,6 @@ export interface DashboardRepository {
   getActivities(): Promise<ActivityItem[]>;
 }
 
-// UseCase interfaces
 export interface DashboardUseCase {
   getDashboardData(): Promise<DashboardData[]>;
   getDashboardMetrics(): Promise<MetricCard[]>;

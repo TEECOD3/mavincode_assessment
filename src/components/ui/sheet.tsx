@@ -27,7 +27,6 @@ interface SheetTitleProps {
 export const Sheet = ({ open, onOpenChange, children }: SheetProps) => {
   return (
     <>
-      {/* Overlay */}
       {open && (
         <div 
           className="fixed inset-0 bg-black/50 z-40"

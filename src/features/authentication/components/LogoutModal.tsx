@@ -18,16 +18,13 @@ export const LogoutModal = ({
 
   return (
     <>
-      {/* Overlay */}
       <div 
         className="fixed inset-0 bg-black/50 z-50 transition-opacity"
         onClick={onClose}
       />
       
-      {/* Modal */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <div className="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 transform transition-all">
-          {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
@@ -47,13 +44,11 @@ export const LogoutModal = ({
             </Button>
           </div>
 
-          {/* Content */}
           <div className="p-6">
             <p className="text-gray-600 mb-6">
               Are you sure you want to log out? You'll need to sign in again to access your dashboard.
             </p>
 
-            {/* Actions */}
             <div className="flex space-x-3 justify-end">
               <Button
                 variant="outline"

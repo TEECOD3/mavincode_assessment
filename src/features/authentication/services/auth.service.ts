@@ -1,6 +1,10 @@
-import type { User, LoginCredentials, LoginResponse } from '@/features/authentication/types/auth.types';
-import { AuthRepository } from './auth.repository';
-import { authApi } from '@/features/authentication/api/auth.api';
+import type {
+  User,
+  LoginCredentials,
+  LoginResponse,
+} from "@/features/authentication/types/auth.types";
+import { AuthRepository } from "./auth.repository";
+import { authApi } from "@/features/authentication/api/auth.api";
 
 export class AuthService {
   private authRepository: AuthRepository;
@@ -11,25 +15,25 @@ export class AuthService {
 
   async login(credentials: LoginCredentials): Promise<LoginResponse> {
     if (!credentials.email || !credentials.password) {
-      throw new Error('Email and password are required');
+      throw new Error("Email and password are required");
     }
 
     if (!this.isValidEmail(credentials.email)) {
-      throw new Error('Invalid email format');
+      throw new Error("Invalid email format");
     }
 
     if (credentials.password.length < 6) {
-      throw new Error('Password must be at least 6 characters long');
+      throw new Error("Password must be at least 6 characters long");
     }
 
     const response = await authApi.login(credentials);
-    
+
     if (!response.success) {
       throw new Error(response.message);
     }
 
-    localStorage.setItem('auth_token', response.data.token);
-    localStorage.setItem('user_data', JSON.stringify(response.data.user));
+    localStorage.setItem("auth_token", response.data.token);
+    localStorage.setItem("user_data", JSON.stringify(response.data.user));
 
     return response.data;
   }
@@ -38,13 +42,13 @@ export class AuthService {
     try {
       await authApi.logout();
     } finally {
-      localStorage.removeItem('auth_token');
-      localStorage.removeItem('user_data');
+      localStorage.removeItem("auth_token");
+      localStorage.removeItem("user_data");
     }
   }
 
   async getCurrentUser(): Promise<User | null> {
-    const token = localStorage.getItem('auth_token');
+    const token = localStorage.getItem("auth_token");
     if (!token) return null;
 
     try {
@@ -56,7 +60,7 @@ export class AuthService {
   }
 
   async isAuthenticated(): Promise<boolean> {
-    const token = localStorage.getItem('auth_token');
+    const token = localStorage.getItem("auth_token");
     if (!token) return false;
 
     try {
@@ -69,14 +73,14 @@ export class AuthService {
 
   getStoredUser(): User | null {
     try {
-      const userData = localStorage.getItem('user_data');
+      const userData = localStorage.getItem("user_data");
       if (!userData) return null;
-      
+
       const user = JSON.parse(userData);
       return {
         ...user,
         createdAt: new Date(user.createdAt),
-        lastLoginAt: user.lastLoginAt ? new Date(user.lastLoginAt) : undefined
+        lastLoginAt: user.lastLoginAt ? new Date(user.lastLoginAt) : undefined,
       };
     } catch {
       return null;
@@ -84,7 +88,7 @@ export class AuthService {
   }
 
   getStoredToken(): string | null {
-    return localStorage.getItem('auth_token');
+    return localStorage.getItem("auth_token");
   }
 
   private isValidEmail(email: string): boolean {
