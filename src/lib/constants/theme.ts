@@ -5,10 +5,10 @@ export const colorTheme = {
     darkBlue: '#1E40AF',
   },
   status: {
-    success: '#10B981', // Green for positive metrics
-    danger: '#EF4444',  // Red for negative metrics
-    warning: '#F59E0B', // Yellow for neutral/warning
-    info: '#6B7280',    // Gray for info
+    success: '#10B981',
+    danger: '#EF4444',
+    warning: '#F59E0B',
+    info: '#6B7280',
   },
   background: {
     primary: '#FFFFFF',

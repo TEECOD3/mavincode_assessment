@@ -5,23 +5,14 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-/**
- * Format an ISO date string for display
- */
 export function formatDate(isoString: string): string {
   return new Date(isoString).toLocaleDateString();
 }
 
-/**
- * Format an ISO date string with time for display
- */
 export function formatDateTime(isoString: string): string {
   return new Date(isoString).toLocaleString();
 }
 
-/**
- * Format timestamp as relative time (e.g., "2h ago", "3d ago")
- */
 export function formatRelativeTime(isoString: string): string {
   const date = new Date(isoString);
   const now = new Date();

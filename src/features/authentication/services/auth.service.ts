@@ -10,7 +10,6 @@ export class AuthService {
   }
 
   async login(credentials: LoginCredentials): Promise<LoginResponse> {
-    // Validate credentials format
     if (!credentials.email || !credentials.password) {
       throw new Error('Email and password are required');
     }
@@ -23,14 +22,12 @@ export class AuthService {
       throw new Error('Password must be at least 6 characters long');
     }
 
-    // Attempt authentication
     const response = await authApi.login(credentials);
     
     if (!response.success) {
       throw new Error(response.message);
     }
 
-    // Store token in localStorage for session management
     localStorage.setItem('auth_token', response.data.token);
     localStorage.setItem('user_data', JSON.stringify(response.data.user));
 
@@ -41,7 +38,6 @@ export class AuthService {
     try {
       await authApi.logout();
     } finally {
-      // Always clear local storage, even if API call fails
       localStorage.removeItem('auth_token');
       localStorage.removeItem('user_data');
     }
@@ -54,7 +50,6 @@ export class AuthService {
     try {
       return await this.authRepository.getCurrentUserByToken(token);
     } catch {
-      // If token is invalid, clear it
       this.logout();
       return null;
     }
@@ -67,7 +62,6 @@ export class AuthService {
     try {
       return await this.authRepository.validateToken(token);
     } catch {
-      // If validation fails, clear invalid token
       this.logout();
       return false;
     }

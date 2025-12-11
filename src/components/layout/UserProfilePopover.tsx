@@ -17,7 +17,6 @@ export const UserProfilePopover = ({
 }: UserProfilePopoverProps) => {
   return (
     <div className="py-2">
-      {/* User Info Header */}
       <div className="px-3 py-2 border-b border-gray-100">
         <div className="flex items-center space-x-3">
           <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
@@ -36,7 +35,6 @@ export const UserProfilePopover = ({
         </div>
       </div>
 
-      {/* Menu Items */}
       <div className="py-1">
         <Button
           variant="ghost"
@@ -59,7 +57,6 @@ export const UserProfilePopover = ({
         </Button>
       </div>
 
-      {/* Logout Section */}
       <div className="border-t border-gray-100 pt-1">
         <Button
           variant="ghost"

@@ -5,7 +5,6 @@ import { DocumentationBanner } from '@/features/dashboard/components/Documentati
 import { InfoCard } from '@/features/dashboard/components/InfoCard';
 
 export const Component = () => {
-  // Sample data matching the design
   const metrics = [
     { title: 'New Tickets', value: '43', change: 6, isPositive: true },
     { title: 'Closed Today', value: '17', change: 3, isPositive: false },
@@ -29,10 +28,8 @@ export const Component = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 py-8">
-        {/* Page Title */}
         <h1 className="text-2xl font-semibold text-gray-900 mb-8">Dashboard</h1>
 
-        {/* Metrics Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 mb-8">
           {metrics.map((metric, index) => (
             <MetricCard
@@ -45,14 +42,11 @@ export const Component = () => {
           ))}
         </div>
 
-        {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Left Column - Development Activity */}
           <div className="lg:col-span-1">
             <DevelopmentActivity />
           </div>
 
-          {/* Middle Column - Charts */}
           <div className="lg:col-span-1 space-y-6">
              <DocumentationBanner />
 

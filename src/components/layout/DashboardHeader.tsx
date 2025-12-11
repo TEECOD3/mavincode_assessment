@@ -6,9 +6,7 @@ export const DashboardHeader = () => {
     <header className="bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-        {/* Left side - Logo and Navigation */}
         <div className="flex items-center space-x-8">
-          {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">▶</span>
@@ -16,7 +14,6 @@ export const DashboardHeader = () => {
             <span className="text-xl font-semibold text-gray-900">tobler</span>
           </div>
 
-          {/* Navigation */}
           <nav className="flex items-center space-x-6">
             <a href="#" className="flex items-center space-x-2 text-blue-500 border-b-2 border-blue-500 pb-4">
               <span className="text-sm font-medium">🏠 Home</span>
@@ -42,7 +39,6 @@ export const DashboardHeader = () => {
           </nav>
         </div>
 
-        {/* Right side - Actions and Profile */}
         <div className="flex items-center space-x-4">
           <Button variant="outline" size="sm" className="text-blue-500 border-blue-500">
             Source code

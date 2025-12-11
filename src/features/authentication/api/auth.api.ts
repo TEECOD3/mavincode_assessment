@@ -6,23 +6,20 @@ import type {
   ApiResponse,
 } from "@/features/authentication/types/auth.types";
 
-// Simulate API delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// Generate a simple JWT-like token
 const generateToken = (userId: string): string => {
   const header = btoa(JSON.stringify({ alg: "HS256", typ: "JWT" }));
   const payload = btoa(
     JSON.stringify({
       userId,
-      exp: Date.now() + 24 * 60 * 60 * 1000, // 24 hours
+      exp: Date.now() + 24 * 60 * 60 * 1000,
     })
   );
   const signature = btoa(`signature_${userId}_${Date.now()}`);
   return `${header}.${payload}.${signature}`;
 };
 
-// Validate token and extract user ID
 const validateToken = (token: string): string | null => {
   try {
     const parts = token.split(".");
@@ -47,8 +44,8 @@ class AuthApi {
       const users = await response.json();
       return users.map((user: any) => ({
         ...user,
-        createdAt: user.createdAt, // Keep as ISO string
-        lastLoginAt: user.lastLoginAt || undefined, // Keep as ISO string
+        createdAt: user.createdAt,
+        lastLoginAt: user.lastLoginAt || undefined,
       }));
     } catch (error) {
       console.error("Error loading users:", error);
@@ -59,7 +56,7 @@ class AuthApi {
   async login(
     credentials: LoginCredentials
   ): Promise<ApiResponse<LoginResponse>> {
-    await delay(500); // Simulate network delay
+    await delay(500);
 
     try {
       const users = await this.loadUsers();
@@ -78,7 +75,6 @@ class AuthApi {
         };
       }
 
-      // Update last login time (in a real app, this would be persisted)
       const updatedUser: User = {
         ...user,
         lastLoginAt: new Date().toISOString(),

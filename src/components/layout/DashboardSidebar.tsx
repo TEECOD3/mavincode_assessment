@@ -53,7 +53,6 @@ export const DashboardSidebar = ({ onLogout }: DashboardSidebarProps) => {
 
   return (
     <>
-      {/* Mobile menu button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
         <Button
           variant="outline"
@@ -65,7 +64,6 @@ export const DashboardSidebar = ({ onLogout }: DashboardSidebarProps) => {
         </Button>
       </div>
 
-      {/* Mobile overlay */}
       {isMobileMenuOpen && (
         <div 
           className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
@@ -73,7 +71,6 @@ export const DashboardSidebar = ({ onLogout }: DashboardSidebarProps) => {
         />
       )}
 
-      {/* Sidebar */}
       <aside 
         className={`
           fixed lg:static inset-y-0 left-0 z-50 w-64 
@@ -83,7 +80,6 @@ export const DashboardSidebar = ({ onLogout }: DashboardSidebarProps) => {
         `}
       >
         <div className="flex flex-col h-full">
-          {/* Logo/Brand */}
           <div className="flex items-center justify-center h-16 px-4 border-b border-gray-200">
             <div className="flex items-center space-x-2">
               <div 
@@ -96,7 +92,6 @@ export const DashboardSidebar = ({ onLogout }: DashboardSidebarProps) => {
             </div>
           </div>
 
-          {/* Navigation */}
           <nav className="flex-1 px-4 py-6 space-y-2">
             {navigationItems.map((item) => {
               const Icon = item.icon;
@@ -123,7 +118,6 @@ export const DashboardSidebar = ({ onLogout }: DashboardSidebarProps) => {
             })}
           </nav>
 
-          {/* User section */}
           <div className="px-4 py-4 border-t border-gray-200">
             <div className="flex items-center space-x-3 mb-3">
               <div 
