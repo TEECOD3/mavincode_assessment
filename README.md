@@ -1,4 +1,4 @@
-# Redux Toolkit and Sagas
+# Redux Toolkit and Saga
 
 A proof of concept React dashboard application built with Clean Architecture and Domain-Driven Design (DDD) principles.
 
