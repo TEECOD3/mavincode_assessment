@@ -1,6 +1,6 @@
-# Mavincode Assessment
+# Redux Toolkit and Sagas
 
-A React dashboard application built with Clean Architecture and Domain-Driven Design (DDD) principles.
+A proof of concept React dashboard application built with Clean Architecture and Domain-Driven Design (DDD) principles.
 
 ## 🏗️ Architecture
 
@@ -10,13 +10,13 @@ Clean Architecture with distinct layers:
 VIEW → USECASE → SERVICE → REPOSITORY → ADAPTER (API)
 ```
 
-| Layer | Purpose |
-|-------|---------|
-| **View** | UI components, pages, hooks |
-| **UseCase** | Business logic orchestration |
-| **Service** | Business rules, validation |
-| **Repository** | Data access abstraction |
-| **Adapter** | External API communication |
+| Layer          | Purpose                      |
+| -------------- | ---------------------------- |
+| **View**       | UI components, pages, hooks  |
+| **UseCase**    | Business logic orchestration |
+| **Service**    | Business rules, validation   |
+| **Repository** | Data access abstraction      |
+| **Adapter**    | External API communication   |
 
 ## 📁 Structure
 
@@ -36,8 +36,9 @@ React 19 • TypeScript • Vite 7 • Redux Toolkit + Saga • Tailwind CSS •
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/TEECOD3/mavincode_assessment.git
-cd mavincode_assessment
+# Clone the repository
+git clone <your-repository-url>
+cd <project-directory>
 pnpm install
 pnpm dev
 ```
@@ -54,6 +55,7 @@ pnpm lint:fix   # Fix ESLint issues
 ## 🔐 Authentication
 
 **Demo Credentials:**
+
 ```
 Email: admin@example.com
 Password: password123
@@ -72,5 +74,3 @@ Password: password123
 
 - **pre-commit**: Runs linting before commit
 - **pre-push**: Runs linting before push
-
-
