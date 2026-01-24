@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "clean:comments": "node scripts/remove-comments.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -1,22 +1,31 @@
 # Redux Toolkit and Saga
 
-A proof of concept React dashboard application built with Clean Architecture and Domain-Driven Design (DDD) principles.
+A proof of concept React dashboard application built with Redux Toolkit + Redux-Saga for state management.
 
 ## 🏗️ Architecture
 
-Clean Architecture with distinct layers:
+Simplified architecture with clear separation of concerns:
 
 ```
-VIEW → USECASE → SERVICE → REPOSITORY → ADAPTER (API)
+COMPONENT → SAGA → SERVICE → API
+     ↓
+  SLICE (State)
 ```
 
-| Layer          | Purpose                      |
-| -------------- | ---------------------------- |
-| **View**       | UI components, pages, hooks  |
-| **UseCase**    | Business logic orchestration |
-| **Service**    | Business rules, validation   |
-| **Repository** | Data access abstraction      |
-| **Adapter**    | External API communication   |
+| Layer         | Purpose                                |
+| ------------- | -------------------------------------- |
+| **Component** | UI components, pages, hooks            |
+| **Saga**      | Async flow orchestration, side effects |
+| **Slice**     | State management, sync reducers        |
+| **Service**   | Business logic, validation             |
+| **API**       | HTTP calls, external communication     |
+
+### Why This Architecture?
+
+- **Saga handles async** - API calls, localStorage, complex flows
+- **Slice handles state** - Synchronous state updates
+- **Service handles logic** - Validation, business rules
+- **No over-abstraction** - Direct flow, easy to trace
 
 ## 📁 Structure
 
@@ -24,14 +33,62 @@ VIEW → USECASE → SERVICE → REPOSITORY → ADAPTER (API)
 src/
 ├── app/              # App config, layout, providers, router
 ├── features/         # Feature modules (authentication, dashboard)
+│   └── [feature]/
+│       ├── components/   # Feature UI components
+│       ├── pages/        # Feature pages
+│       ├── hooks/        # Feature hooks
+│       ├── stores/       # Redux slice + saga
+│       ├── services/     # Business logic
+│       ├── api/          # API endpoints
+│       └── types/        # TypeScript types
 ├── components/       # Shared components (layout, ui)
-├── lib/              # Utilities, stores, types
+├── lib/              # Utilities, stores, types, schemas
+│   └── stores/       # Root reducer + saga
 └── routes/           # Route definitions
 ```
 
+### Feature Module Pattern
+
+Each feature follows a consistent structure:
+
+- **stores/** - Redux slice (state) + saga (async)
+- **services/** - Business logic + validation
+- **api/** - Raw HTTP calls
+- **components/** - UI components
+- **hooks/** - Custom hooks for the feature
+
 ## 🔧 Tech Stack
 
-React 19 • TypeScript • Vite 7 • Redux Toolkit + Saga • Tailwind CSS • React Hook Form + Zod • React Router v7 • Recharts • Lucide React • ESLint + Husky
+**Core:**
+
+- React 19 + TypeScript
+- Vite 7
+
+**State Management:**
+
+- Redux Toolkit (state + reducers)
+- Redux-Saga (async operations)
+
+**UI & Styling:**
+
+- Tailwind CSS
+- shadcn/ui components
+- Lucide React (icons)
+- Recharts (data visualization)
+
+**Forms & Validation:**
+
+- React Hook Form
+- Zod schemas
+
+**Routing:**
+
+- React Router v7
+
+**Code Quality:**
+
+- ESLint
+- Husky (git hooks)
 
 ## 🚀 Getting Started
 
@@ -74,3 +131,40 @@ Password: password123
 
 - **pre-commit**: Runs linting before commit
 - **pre-push**: Runs linting before push
+
+## 📚 Documentation
+
+- [Redux Saga Explanation](./docs/redux-saga-explanation.md) - Detailed guide on how Redux Toolkit + Saga work together
+- [Redux State Management](./docs/redux-state-management.md) - State management patterns and best practices
+
+## 🎯 Key Concepts
+
+### Redux-Saga Flow
+
+```typescript
+// 1. Component dispatches saga action
+dispatch(loginRequest({ email, password }));
+
+// 2. Saga catches and processes
+function* loginSaga(action) {
+  yield put(loginStart()); // Update loading state
+  const result = yield call([authService, "login"], action.payload);
+  yield put(loginSuccess(result)); // Update with data
+}
+
+// 3. Slice updates state
+loginSuccess: (state, action) => {
+  state.user = action.payload.user;
+  state.isAuthenticated = true;
+};
+
+// 4. Component re-renders
+```
+
+### Why Saga over Thunk?
+
+- ✅ Better for complex async flows
+- ✅ Easier to test (pure functions)
+- ✅ Cancellable operations
+- ✅ Background tasks support
+- ✅ Race condition handling

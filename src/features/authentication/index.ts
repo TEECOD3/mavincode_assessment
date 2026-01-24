@@ -23,7 +23,6 @@ export type {
 } from "@/features/authentication/types/auth.types";
 
 export { authService } from "@/features/authentication/services/auth.service";
-export { authUseCase } from "@/features/authentication/services/auth.usecase";
 
 export {
   loginRequest,
